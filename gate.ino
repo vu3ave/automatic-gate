@@ -13,7 +13,7 @@ int smps_status = 0; // default smps power supplys are OFF
 int gate_status = 10; // 10 = stoped  ,, 11 = opening  ,, 12 = closing
 
 int last_gate_status = 10;
-int last_smps_status = 1;
+int last_smps_status = 0;
 
 
 // sampling variables
@@ -42,7 +42,7 @@ int notes2[] = {
 
 
 /// timer variables
-const long interval = 15000; // 5 seconds for door opening time
+const long interval = 5000; //  ( 11000; ).... 11 seconds for door opening time...ADJUST IF NECESSORY
 unsigned long currentMillis = 0;
 
 
@@ -182,12 +182,12 @@ if(gate_status == 10){ digitalWrite(Relay_smps, LOW); delay(500);  digitalWrite(
 
 
 //////////////tone for gate stoping//////+++
-if(last_gate_status == 11 && gate_status == 10){ gate_73(); }
-if(last_gate_status == 12 && gate_status == 10){ gate_73(); }
-if(last_smps_status == 1 && smps_status == 0){ gate_73(); }
-
-last_smps_status = smps_status;
 last_gate_status = gate_status;
+if(last_gate_status == 11 && gate_status == 10){ gate_ar(); }
+if(last_gate_status == 12 && gate_status == 10){ gate_ar(); }
+if(last_smps_status == 1 && smps_status == 0){ gate_ar(); }
+last_smps_status = smps_status;
+
 //////////////tone for gate stoping//////---
 
 
@@ -199,7 +199,7 @@ last_gate_status = gate_status;
 
 void gate_opening()
 {
- 
+ // GATE OPENING TONE
  
     
   for (int thisSensor = 3; thisSensor >= 0; thisSensor--) {
@@ -212,19 +212,19 @@ void gate_opening()
 
 void gate_closing()
 {
- 
+ // GATE CLOSING TONE
  
     
-  for (int thisSensor = 3; thisSensor >= 0; thisSensor--) {
+ for (int thisSensor = 3; thisSensor >= 0; thisSensor--) {
          tone(tone_pin, notes2[thisSensor]);
          delay(100);
          noTone(tone_pin);
   }
 }
 
-void gate_73()
+void gate_ar()
 {
-
+// GATE STOPPING TONE
 tone(tone_pin, 900);
 delay(100); 
 noTone(tone_pin); 
