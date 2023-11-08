@@ -1,6 +1,7 @@
 # automatic-gate
 Arduino controlled automatic sliding gate
 
+
 > [!NOTE]
 > Uses,
 >   1.    clutch, electro mechanical (12 V operation)
@@ -8,6 +9,8 @@ Arduino controlled automatic sliding gate
 >   1.  3 - double contact relays to control Clutch, Motor, forward-reverse DC changeover
 >   1.   1 - Arduino nano
 >   1.   bd139 (3nos) to drive 3 relays
+>
+> (https://raw.githubusercontent.com/vu3ave/automatic-gate/main/programming.jpeg)
 
 > [!IMPORTANT]
 > Two button, radio wireless remote control module  with board, purchased
