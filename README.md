@@ -10,7 +10,7 @@ Arduino controlled automatic sliding gate
 >   1.   1 - Arduino nano
 >   1.   bd139 (3nos) to drive 3 relays
 >
-> (https://raw.githubusercontent.com/vu3ave/automatic-gate/main/programming.jpeg)
+> ([https://raw.githubusercontent.com/vu3ave/automatic-gate/main/programming.jpeg](https://github.com/vu3ave/automatic-gate/blob/main/programming.jpeg))
 
 > [!IMPORTANT]
 > Two button, radio wireless remote control module  with board, purchased
