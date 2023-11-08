@@ -12,6 +12,9 @@ int tone_pin=13;
 int smps_status = 0; // default smps power supplys are OFF
 int gate_status = 10; // 10 = stoped  ,, 11 = opening  ,, 12 = closing
 
+int last_gate_status = 10;
+int last_smps_status = 1;
+
 
 // sampling variables
 int remotepin_A_newstate_1 = 0;
@@ -39,7 +42,7 @@ int notes2[] = {
 
 
 /// timer variables
-const long interval = 5000; // 5 seconds for door opening time
+const long interval = 15000; // 5 seconds for door opening time
 unsigned long currentMillis = 0;
 
 
@@ -125,6 +128,9 @@ statB = 1;
 if( statA != Old_statA){
 
   Serial.println("Button A statechanged....................");
+
+button_confirm_tone();
+  
 currentMillis = millis(); // resetting timer
 
   
@@ -139,6 +145,8 @@ Old_statA = statA;
 if( statB != Old_statB){
 
   Serial.println("Button B statechanged....................");
+
+  button_confirm_tone();
 currentMillis = millis(); // resitting timer
  if( gate_status != 10) { Serial.println("gate stop sequence starts ///// "); gate_status = 10; }
  else if( gate_status == 10 && statB == 1){  Serial.println("CLOSING sequence starts.......");    gate_status = 12;}
@@ -173,6 +181,15 @@ if(gate_status == 10){ digitalWrite(Relay_smps, LOW); delay(500);  digitalWrite(
 
 
 
+//////////////tone for gate stoping//////+++
+if(last_gate_status == 11 && gate_status == 10){ gate_73(); }
+if(last_gate_status == 12 && gate_status == 10){ gate_73(); }
+if(last_smps_status == 1 && smps_status == 0){ gate_73(); }
+
+last_smps_status = smps_status;
+last_gate_status = gate_status;
+//////////////tone for gate stoping//////---
+
 
 
 }
@@ -189,6 +206,7 @@ void gate_opening()
          tone(tone_pin, notes1[thisSensor]);
          delay(100);
          noTone(tone_pin);
+         
   }
 }
 
@@ -203,3 +221,45 @@ void gate_closing()
          noTone(tone_pin);
   }
 }
+
+void gate_73()
+{
+
+tone(tone_pin, 900);
+delay(100); 
+noTone(tone_pin); 
+
+delay(100);
+
+
+tone(tone_pin, 900);
+delay(300); 
+noTone(tone_pin); 
+
+delay(100);
+
+tone(tone_pin, 900);
+delay(100); 
+noTone(tone_pin); 
+
+delay(100);
+
+
+tone(tone_pin, 900);
+delay(300); 
+noTone(tone_pin); 
+
+delay(100);
+
+tone(tone_pin, 900);
+delay(100); 
+noTone(tone_pin); 
+}
+
+void button_confirm_tone(){
+tone(tone_pin, 1000);
+delay(100); 
+noTone(tone_pin); 
+}
+
+
