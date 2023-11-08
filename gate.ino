@@ -1,4 +1,4 @@
-// initial upload : 8/11/2023 by vu3ave
+
 // defining input and output pins
 
 int remotepin_A = 2;
@@ -25,6 +25,16 @@ int Old_statB = 0;
 
 
 
+
+// tone frequency for speaker
+int notes1[] = {
+  1047, 1319, 1175, 1568
+};
+
+int notes2[] = {
+1568, 1175, 1319, 1047
+ 
+};
 
 
 
@@ -148,10 +158,10 @@ Old_statB = statB;
 
 
 
- if(gate_status == 12 && smps_status == 1){ delay(500); digitalWrite(Relay_FR, HIGH); delay(500); digitalWrite(Relay_clutch_n_motor, HIGH); }
+ if(gate_status == 12 && smps_status == 1){ delay(500); digitalWrite(Relay_FR, HIGH); gate_closing(); digitalWrite(Relay_clutch_n_motor, HIGH); }
 else if(gate_status == 12 && smps_status == 0){ digitalWrite(Relay_smps, LOW); delay(500); digitalWrite(Relay_clutch_n_motor, LOW); delay(500); digitalWrite(Relay_FR, LOW);}
 
-else if(gate_status == 11 && smps_status == 1){digitalWrite(Relay_FR, LOW); delay(500); digitalWrite(Relay_clutch_n_motor, HIGH);  }
+else if(gate_status == 11 && smps_status == 1){digitalWrite(Relay_FR, LOW); gate_opening(); digitalWrite(Relay_clutch_n_motor, HIGH);  }
 else if(gate_status == 11 && smps_status == 0){digitalWrite(Relay_FR, LOW); delay(500); digitalWrite(Relay_clutch_n_motor, LOW);   }
  
  
@@ -168,4 +178,28 @@ if(gate_status == 10){ digitalWrite(Relay_smps, LOW); delay(500);  digitalWrite(
 }
 
 
+////////// additional functions//////////
 
+void gate_opening()
+{
+ 
+ 
+    
+  for (int thisSensor = 3; thisSensor >= 0; thisSensor--) {
+         tone(tone_pin, notes1[thisSensor]);
+         delay(100);
+         noTone(tone_pin);
+  }
+}
+
+void gate_closing()
+{
+ 
+ 
+    
+  for (int thisSensor = 3; thisSensor >= 0; thisSensor--) {
+         tone(tone_pin, notes2[thisSensor]);
+         delay(100);
+         noTone(tone_pin);
+  }
+}
