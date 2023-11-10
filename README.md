@@ -1,6 +1,9 @@
 # automatic-gate
 Arduino controlled automatic sliding gate
-
+programmed for vu2jlx
+ 
+## Video
+https://www.youtube.com/watch?v=QMO8cBT-pHU
 
 > [!NOTE]
 > Uses,
