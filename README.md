@@ -14,6 +14,9 @@ https://www.youtube.com/watch?v=QMO8cBT-pHU
 >   1.   bd139 (3nos) to drive 3 relays
 >
 > ([https://raw.githubusercontent.com/vu3ave/automatic-gate/main/programming.jpeg](https://github.com/vu3ave/automatic-gate/blob/main/programming.jpeg))
+>
+> ## Circuit diagram
+> https://github.com/vu3ave/automatic-gate/blob/main/Circuit-Remote-gate.jpeg
 
 > [!IMPORTANT]
 > Two button, radio wireless remote control module  with board, purchased
