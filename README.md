@@ -3,7 +3,7 @@ Arduino controlled automatic sliding gate
 programmed for vu2jlx
 
 ## programme code
-https://github.com/vu3ave/automatic-gate/blob/main/gate.ino
+https://github.com/vu3ave/automatic-gate/blob/main/gate-5-may-2024.ino
  
 ## Video
 https://www.youtube.com/watch?v=QMO8cBT-pHU
