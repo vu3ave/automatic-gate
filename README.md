@@ -20,10 +20,12 @@ https://www.youtube.com/watch?v=QMO8cBT-pHU
 >
 > ## Circuit diagram
 > https://github.com/vu3ave/automatic-gate/blob/main/Circuit-Remote-gate.jpeg
+<img src="https://github.com/vu3ave/automatic-gate/blob/main/Circuit-Remote-gate.jpeg" width="500" >
+
 > ## Arduino circuit
 > https://github.com/vu3ave/automatic-gate/blob/main/Arduino-Circuit.jpeg
 
-<img src="https://github.com/vu3ave/automatic-gate/blob/main/Arduino-Circuit.jpeg" width="200" >
+<img src="https://github.com/vu3ave/automatic-gate/blob/main/Arduino-Circuit.jpeg" width="500" >
 
 > [!IMPORTANT]
 > Two button, radio wireless remote control module  with board, purchased
