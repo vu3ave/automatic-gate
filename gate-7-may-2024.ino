@@ -6,7 +6,7 @@
 // date: 7 May 2024
 // Reff: https://www.youtube.com/watch?v=OS_791bFRZY  
 // Reff PEROGRAME CODE BY vu3ave: https://github.com/vu3ave/automatic-gate
-// Made by Anish VR, NORTH PARAVUR , KERALA (VU3AVE) CONTACT: vu3ave@gmail.com // MOBILE:+91 9995957776
+// Made by Anish VR, near little hearts school, Kizhekkepram, NORTH PARAVUR , KERALA, INDIA (VU3AVE) CONTACT: vu3ave@gmail.com anishvrajan@gmail.com // MOBILE:+91 9995957776
 
 
 
@@ -15,6 +15,17 @@
 /// FINAL CODE /////////////// WORKNG //////////////////////////
 // Press A to close gate continuesly 
 // Press B to open gate continuesly 
+
+// WIRING DETAILS//////////////////////////////////////////////
+// use two numbers of 3.3k ohm pullup resistor, connected to +5v in both inputs digital pins
+
+// Speaker tones
+// 1. Start up tone - 'OK' in telegraphy
+// 2. Confirmation tone - during each key press A and B inputs
+// 3. SMPS OFF tone - after completing timeout time (17 seconds) - 'AR' in telegraphy
+
+
+
 ////////////////////////////////////////////////////
 
 
@@ -85,8 +96,8 @@ unsigned long currentMillis = 0;
 void setup() {
   
    Serial.begin(9600);
-  pinMode(remotepin_A, INPUT_PULLUP);
-  pinMode(remotepin_B, INPUT_PULLUP);
+  pinMode(remotepin_A, INPUT);
+  pinMode(remotepin_B, INPUT);
 
   pinMode(Relay_FR, OUTPUT);
   pinMode(Relay_clutch_n_motor, OUTPUT);  
@@ -206,11 +217,11 @@ Serial.println(" ");
 
 
 
- if(gate_status == 12 && smps_status == 1){  digitalWrite(Relay_FR, HIGH); gate_closing(); digitalWrite(Relay_clutch_n_motor, HIGH); }
+ if(gate_status == 12 && smps_status == 1){  digitalWrite(Relay_FR, HIGH); delay(50); digitalWrite(Relay_clutch_n_motor, HIGH); }
 else if(gate_status == 12 && smps_status == 0){ //digitalWrite(Relay_smps, LOW);
   delay(50); digitalWrite(Relay_clutch_n_motor, LOW); delay(50); digitalWrite(Relay_FR, LOW);}
 
-else if(gate_status == 11 && smps_status == 1){digitalWrite(Relay_FR, LOW); gate_opening(); digitalWrite(Relay_clutch_n_motor, HIGH);  }
+else if(gate_status == 11 && smps_status == 1){digitalWrite(Relay_FR, LOW); delay(50); digitalWrite(Relay_clutch_n_motor, HIGH);  }
 else if(gate_status == 11 && smps_status == 0){digitalWrite(Relay_FR, LOW); delay(50); digitalWrite(Relay_clutch_n_motor, LOW);   }
  
  
@@ -403,7 +414,6 @@ tone(tone_pin, 1500);
 delay(300); 
 noTone(tone_pin); 
 
-//////////////////////////1
-
 
 }
+////////////////////////// Thank you for comming upto this end
