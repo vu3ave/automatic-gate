@@ -23,6 +23,8 @@ https://www.youtube.com/watch?v=QMO8cBT-pHU
 > ## Arduino circuit
 > https://github.com/vu3ave/automatic-gate/blob/main/Arduino-Circuit.jpeg
 
+<img src="https://github.com/vu3ave/automatic-gate/blob/main/Arduino-Circuit.jpeg" width="200" >
+
 > [!IMPORTANT]
 > Two button, radio wireless remote control module  with board, purchased
 - [ ] https://5.imimg.com/data5/SELLER/Default/2023/9/347940501/ET/UZ/LH/148135461/433mhz-12v-2-channel-relay-module-wireless-with-rf-remote-control-switch-2-button.jpg
