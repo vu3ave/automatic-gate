@@ -4,9 +4,17 @@ programmed for vu2jlx
 
 ## programme code
 https://github.com/vu3ave/automatic-gate/blob/main/gate-5-may-2024.ino
+
+
  
 ## Video
 https://www.youtube.com/watch?v=QMO8cBT-pHU
+
+Working automatic Gate : 
+https://www.youtube.com/watch?v=bBtWZSfjwgs
+
+
+
 
 > [!NOTE]
 > Uses,
